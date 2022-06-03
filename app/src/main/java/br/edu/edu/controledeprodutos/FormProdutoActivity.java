@@ -14,10 +14,14 @@ public class FormProdutoActivity extends AppCompatActivity {
     private EditText edit_quantidade;
     private EditText edit_valor;
 
+    private ProdutoDAO produtoDAO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_produto);
+
+        produtoDAO = new ProdutoDAO(this);
 
         edit_produto = findViewById(R.id.edit_produto);
         edit_quantidade = findViewById(R.id.edit_quantidade);
@@ -40,8 +44,18 @@ public class FormProdutoActivity extends AppCompatActivity {
                     if (!valor.isEmpty()){
 
                         double valorProduto = Double.parseDouble(valor);
+
                         if (valorProduto > 0){
-                            Toast.makeText(this, "Produto Cadastrado", Toast.LENGTH_SHORT).show();
+
+                            Produto produto = new Produto();
+                            produto.setNome(nome);
+                            produto.setEstoque(qtd);
+                            produto.setValor(valorProduto);
+
+                            produtoDAO.salvarProduto(produto);
+
+                            finish();
+
                             
                         }else {
                             edit_valor.requestFocus();

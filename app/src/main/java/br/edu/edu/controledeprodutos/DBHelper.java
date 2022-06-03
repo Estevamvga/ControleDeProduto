@@ -11,7 +11,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final int VERSAO = 1;
     private static final String NOME_DB = "NOME_DB";
-    private static final String TB_PRODUTO = "TB_PRODUTO";
+    static final String TB_PRODUTO = "TB_PRODUTO";
 
 
     public DBHelper(Context context) {

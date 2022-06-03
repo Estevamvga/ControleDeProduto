@@ -2,9 +2,18 @@ package br.edu.edu.controledeprodutos;
 
 public class Produto {
 
+    private int id;
     private String nome;
     private int estoque;
     private double valor;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id=id;
+    }
 
     public String getNome() {
         return nome;
@@ -28,5 +37,8 @@ public class Produto {
 
     public void setValor(double valor) {
         this.valor=valor;
+    }
+
+    public void setId() {
     }
 }
