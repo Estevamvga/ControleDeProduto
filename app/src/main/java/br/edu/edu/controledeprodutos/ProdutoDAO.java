@@ -46,10 +46,10 @@ public class ProdutoDAO {
 
         while (c.moveToNext()){
 
-            int id = c.getInt(c.getColumnIndex("id"));
-            String nome = c.getString(c.getColumnIndex("nome"));
-            int estoque = c.getInt(c.getColumnIndex("estoque"));
-            double valor = c.getDouble(c.getColumnIndex("valor"));
+            @SuppressLint("Range") int id = c.getInt(c.getColumnIndex("id"));
+            @SuppressLint("Range") String nome = c.getString(c.getColumnIndex("nome"));
+            @SuppressLint("Range") int estoque = c.getInt(c.getColumnIndex("estoque"));
+            @SuppressLint("Range") double valor = c.getDouble(c.getColumnIndex("valor"));
 
             Produto produto = new Produto();
             produto.setId(id);
@@ -64,6 +64,29 @@ public class ProdutoDAO {
       return produtoList;
 
     }
+
+    public void atualizaProduto(Produto produto){
+
+        ContentValues cv = new ContentValues();
+        cv.put("nome", produto.getNome());
+        cv.put("estoque", produto.getEstoque());
+        cv.put("valor", produto.getValor());
+
+        String where = "id:";
+        String[] arg ={String.valueOf(produto.getId())};
+
+        try {
+            write.update(DBHelper.TB_PRODUTO, cv, where, arg);
+            //write.close();
+        }catch (Exception e){
+            Log.i("Error", "Erro ao atualizar produto: " + e.getMessage());
+
+        }
+
+
+    }
+
+
     
     
     

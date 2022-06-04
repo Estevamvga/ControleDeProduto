@@ -15,6 +15,7 @@ public class FormProdutoActivity extends AppCompatActivity {
     private EditText edit_valor;
 
     private ProdutoDAO produtoDAO;
+    private Produto produto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,24 @@ public class FormProdutoActivity extends AppCompatActivity {
         edit_produto = findViewById(R.id.edit_produto);
         edit_quantidade = findViewById(R.id.edit_quantidade);
         edit_valor = findViewById(R.id.edit_valor);
+
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+            produto =(Produto) bundle.getSerializable("produto");
+
+            editProduto();
+
+        }
+
+    }
+
+    private void editProduto(){
+
+        edit_produto.setText(produto.getNome());
+        edit_quantidade.setText(String.valueOf(produto.getEstoque()));
+        edit_valor.setText(String.valueOf(produto.getValor()));
+
+
     }
 
     public void salvarProduto(View view){
@@ -47,12 +66,16 @@ public class FormProdutoActivity extends AppCompatActivity {
 
                         if (valorProduto > 0){
 
-                            Produto produto = new Produto();
+                            if(produto == null) produto = new Produto();
                             produto.setNome(nome);
                             produto.setEstoque(qtd);
                             produto.setValor(valorProduto);
 
-                            produtoDAO.salvarProduto(produto);
+                            if(produto.getId() != 0){
+                                produtoDAO.atualizaProduto(produto);
+                            }else {
+                                produtoDAO.salvarProduto(produto);
+                            }
 
                             finish();
 

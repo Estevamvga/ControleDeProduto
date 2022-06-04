@@ -1,6 +1,8 @@
 package br.edu.edu.controledeprodutos;
 
-public class Produto {
+import java.io.Serializable;
+
+public class Produto implements Serializable {
 
     private int id;
     private String nome;
