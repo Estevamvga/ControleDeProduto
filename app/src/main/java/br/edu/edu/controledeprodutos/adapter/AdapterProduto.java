@@ -1,4 +1,4 @@
-package br.edu.edu.controledeprodutos;
+package br.edu.edu.controledeprodutos.adapter;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import br.edu.edu.controledeprodutos.R;
 import br.edu.edu.controledeprodutos.model.Produto;
 
 public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.MyViewHolder> {

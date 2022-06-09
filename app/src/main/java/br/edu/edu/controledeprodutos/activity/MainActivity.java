@@ -17,11 +17,10 @@ import com.tsuryo.swipeablerv.SwipeableRecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.edu.controledeprodutos.AdapterProduto;
-import br.edu.edu.controledeprodutos.Produto;
+import br.edu.edu.controledeprodutos.adapter.AdapterProduto;
+import br.edu.edu.controledeprodutos.model.Produto;
 import br.edu.edu.controledeprodutos.ProdutoDAO;
 import br.edu.edu.controledeprodutos.R;
-import br.edu.edu.controledeprodutos.activity.FormProdutoActivity;
 
 public class MainActivity extends AppCompatActivity implements AdapterProduto.Onclick {
 

@@ -10,6 +10,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.edu.controledeprodutos.model.Produto;
+
 public class ProdutoDAO {
 
     private final SQLiteDatabase write;
@@ -84,6 +86,18 @@ public class ProdutoDAO {
         }
 
 
+    }
+
+    public void deletaProduto(Produto produto){
+
+        try {
+            String[] arg ={String.valueOf(produto.getId())};
+            String  where = "id=?";
+            write.delete(DBHelper.TB_PRODUTO, where , arg);
+
+        }catch (Exception e){
+            Log.i("Error", "Erro ao deletar produto: " + e.getMessage());
+        }
     }
 
 

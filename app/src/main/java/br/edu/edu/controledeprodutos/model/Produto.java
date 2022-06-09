@@ -1,4 +1,4 @@
-package br.edu.edu.controledeprodutos;
+package br.edu.edu.controledeprodutos.model;
 
 import java.io.Serializable;
 

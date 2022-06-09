@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f76a65"
-    tools:context=".FormProdutoActivity">
+    tools:context=".activity.FormProdutoActivity">
 
     <include
         android:id="@+id/include"
@@ -77,15 +77,13 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/bg_btn"
             android:onClick="salvarProduto"
             android:text="Salvar"
             android:textAllCaps="false"
             android:textColor="#f76a65"
             app:backgroundTint="@color/white" />
-
-
 
 
     </LinearLayout>
