@@ -2,9 +2,11 @@ package br.edu.edu.controledeprodutos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,7 @@ public class FormProdutoActivity extends AppCompatActivity {
         edit_quantidade = findViewById(R.id.edit_quantidade);
         edit_valor = findViewById(R.id.edit_valor);
 
+
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
             produto =(Produto) bundle.getSerializable("produto");
@@ -37,6 +40,8 @@ public class FormProdutoActivity extends AppCompatActivity {
         }
 
     }
+
+
 
     private void editProduto(){
 
@@ -106,5 +111,6 @@ public class FormProdutoActivity extends AppCompatActivity {
         }
 
     }
+
 
 }
